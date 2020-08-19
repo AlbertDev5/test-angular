@@ -1,6 +1,9 @@
 <header class="header">
-    <h1>TODO</h1>
-    <input  class="new-todo" 
-            placeholder="Enter the task" 
-            autofocus>
-  </header>
+  <h1>TODO</h1>
+  <!--  se pudo haber usado ngModel-->
+  <input class="new-todo"
+         placeholder="Enter the task"
+         autofocus
+         (keyup.enter)="addItemEvent($event)"
+  >
+</header>

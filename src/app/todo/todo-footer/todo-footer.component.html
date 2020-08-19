@@ -5,15 +5,19 @@
   <!-- Remove this if you don't implement routing -->
   <ul class="filters">
     <li>
-      <a class="selected" href="#/">Todo</a>
+      <a [ngClass]="{'selected': filterTypeSelected === filterType.All}"
+         (click)="changeFilterType(filterType.All)"
+         href="#/">Todo</a>
     </li>
     <li>
-      <a href="#/active">Pending</a>
+      <a [ngClass]="{'selected': filterTypeSelected === filterType.Pending}"
+         (click)="changeFilterType(filterType.Pending)" href="#/active">Pending</a>
     </li>
     <li>
-      <a href="#/completed">Completed</a>
+      <a [ngClass]="{'selected': filterTypeSelected === filterType.Completed}"
+         (click)="changeFilterType(filterType.Completed)" href="#/completed">Completed</a>
     </li>
   </ul>
   <!-- Hidden if no completed items are left ↓ -->
-  <button class="clear-completed">Delete completed</button>
+  <button class="clear-completed" (click)="deleteCompletedItems()">Delete completed</button>
 </footer>
