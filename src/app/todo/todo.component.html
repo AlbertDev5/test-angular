@@ -1,14 +1,17 @@
 <section class="todoapp">
 
- <app-todo-add></app-todo-add>
-  
+  <app-todo-add (newItem)="addedItem($event)"></app-todo-add>
+
   <section class="main">
 
     <input id="toggle-all" class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
-    
-    <app-todos-list></app-todos-list>
+
+    <app-todos-list [todoItemsIn]="todoItems"
+                    (checkedValue)="toggleCheckedValue($event)"
+                    (deleteItemEmitter)="deleteCompletedItem($event)"
+    ></app-todos-list>
   </section>
-  
-  <app-todo-footer></app-todo-footer>
+
+  <app-todo-footer (filterTypeEmitter)="filterData($event)" (deleteCompletedEmitter)="deleteCompletedItems()"></app-todo-footer>
 </section>
